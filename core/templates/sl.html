@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+<div class="section-header text-center">
+    <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Clients Management</h2>
+    <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+  </div>
+
+
+<div class="container1">
+        <form action="{% url 'search2_results' %}" method="get">
+        {% csrf_token %}
+                <input name="q" type="text" value = "{{ request.GET.q }}" placeholder="Search...">
+              </form>      
+                     
+
+        <table id="customers">
+            <tr>
+                
+                <th><a href="?order_by=client_name&direction={{ direction }}" style="color:white";>Client name</a></th>
+                <th><a href="?order_by=email&direction={{ direction }}" style="color:white";>email address</a></th>
+                <th><a href="?order_by=contact_no&direction={{ direction }}" style="color:white";>phone number</a></th>
+                <th><a href="?order_by=suburb&direction={{ direction }}" style="color:white";>client suburb</a></th>
+                <th>Update</th>
+                
+               
+            </tr>
+            {% for Client in dta %}
+            <tr>
+                <td style="color: black">{{ Client.client_name}}</td>
+                <td style="color: black">{{ Client.email}}</td>
+                <td style="color: black">{{ Client.contact_no}}</td>
+                <td style="color: black">{{ Client.suburb}}</td>
+                <td><a href="{% url 'update_profile' Client.id %}"><button type="submit" >Update</button></a></td>
+            </tr>
+            {% endfor %}
+        </table>
+      
+   
+        {% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="section-header text-center" style="margin-top:125px; ">
+    <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Client updated profile</h2>
+    <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+  </div>
+  <div class="container1">       
+
+<div class="w3-container" style=" color:black;margin:20px;font-style: italic;">
+    <p>Client_name: {{ user.client_name }} </p>
+    <p>Contact_Name: {{ user.contact_name }} </p>   
+    {% comment %} <p>suburb: </p> {% endcomment %}
+    <p>Address: {{ user.street_name }}, {{ user.suburb }}, {{ user.state }}</p>
+    <p>postcode: {{ user.postcode }} </p>
+    {% comment %} <p>state:  </p> {% endcomment %}
+    <p>email: {{ user.email }} </p>
+    <p>contact_no: {{ user.contact_no }} </p>
+
+    <a href="{% url 'update_profile' user.id %}"><button class="button" style="margin-top:5%;background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 4px;">Edit Profile</button></a>
+
+
+</div>
+{% endblock %}  
+   

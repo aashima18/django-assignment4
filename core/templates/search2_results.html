@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="section-header text-center">
+  <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Search Results</h2>
+  <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+</div>
+<div class="container1">
+
+<table id="customers">
+    <tr>
+               <th>Client name</th>
+                <th>email address</th>
+                <th>phone number</th>
+                <th>client suburb</th>
+        
+       
+    </tr>
+  {% for Client in object_list %}
+ <tr>
+                <td style="color: black">{{ Client.client_name}}</td>
+                <td style="color: black">{{ Client.email}}</td>
+                <td style="color: black">{{ Client.contact_no}}</td>
+                <td style="color: black">{{ Client.suburb}}</td>
+               
+            </tr>
+   
+  {% endfor %}
+</table>
+</div>
+
+{% endblock %}
